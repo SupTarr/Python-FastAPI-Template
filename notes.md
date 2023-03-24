@@ -23,7 +23,7 @@ venv\Scripts\activate.bat
 ## Section 3: FastAPI
 
 ```cmd
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 
 This command makes **FastAPI** always watch some changing of codes.

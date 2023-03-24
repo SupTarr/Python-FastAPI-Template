@@ -1,11 +1,11 @@
 # SQL commands
 
-| id: (Serial + Primary Key) | name: Character varying(50) | price: Numeric(10, 2) | is_sale: Boolean | inventory: Integer | created_at: (Timestamp) |
-| :------------------------: | :-------------------------: | :-------------------: | :--------------: | :----------------: | :---------------------: |
-|             1              |         "Product A"         |         49.99         |       true       |        100         |  "2022-03-23 12:00:00"  |
-|             2              |         "Product B"         |         19.99         |      false       |         50         |  "2022-03-22 10:30:00"  |
-|             3              |         "Product C"         |         89.99         |       true       |         25         |  "2022-03-20 14:15:00"  |
-|             4              |         "Product D"         |         59.99         |      false       |         75         |  "2022-03-18 16:45:00"  |
+| id: Serial + Primary Key | name: Character varying(50) | price: Numeric(10, 2) | is_sale: Boolean | inventory: Integer | created_at: Timestamp |
+| :----------------------: | :-------------------------: | :-------------------: | :--------------: | :----------------: | :-------------------: |
+|            1             |         "Product A"         |         49.99         |       true       |        100         | "2022-03-23 12:00:00" |
+|            2             |         "Product B"         |         19.99         |      false       |         50         | "2022-03-22 10:30:00" |
+|            3             |         "Product C"         |         89.99         |       true       |         25         | "2022-03-20 14:15:00" |
+|            4             |         "Product D"         |         59.99         |      false       |         75         | "2022-03-18 16:45:00" |
 
 ```SQL
 SELECT * FROM products;
