@@ -10,7 +10,6 @@ class Post(BaseModel):
     title: str
     content: str
     published: bool = True
-    rating: Optional[int] = None
 
 
 my_posts = [
@@ -57,7 +56,6 @@ def create_post(post: Post):
     post_dict = post.dict()
     post_dict["id"] = randrange(0, 100000)
     my_posts.append(post_dict)
-    print(my_posts)
     return {"data": post_dict}
 
 
@@ -72,7 +70,6 @@ def update_post(id: int, post: Post):
     post_dict = post.dict()
     post_dict["id"] = id
     my_posts[index] = post_dict
-    print(my_posts, index)
     return {"data": my_posts[index]}
 
 

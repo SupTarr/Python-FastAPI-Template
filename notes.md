@@ -129,3 +129,9 @@ def get_post(id: int):
         )
     return {"data": post}
 ```
+
+---
+
+## Section 4: SQL
+
+[Link to section 4](4_SQL.md)
