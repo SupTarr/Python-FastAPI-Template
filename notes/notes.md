@@ -135,3 +135,15 @@ def get_post(id: int):
 ## Section 4: SQL
 
 [Link to section 4](4_SQL.md)
+
+---
+
+## Section 6: ORMs
+
+### ORMs VS Schema models (Pydantic models)
+
+**ORMs** (Object-Relational Mappers) are software tools or frameworks that facilitate the communication between *object-oriented programming languages* and *relational databases*.
+
+**Pydantic models** can be used to define the *shape of data* that should be stored in a database or used in any other part of an application.
+
+**SQLAlchemy models** are used to define the *structure* (column) of a database table and its *relationships* to other tables.
