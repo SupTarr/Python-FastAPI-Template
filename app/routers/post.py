@@ -2,12 +2,13 @@ from fastapi import Response, status, HTTPException, Depends, APIRouter
 from .. import models, schemas, oauth2
 from typing import Optional, List
 from ..database import get_db
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 router = APIRouter(prefix="/posts", tags=["Posts"])
 
 
-@router.get("/", response_model=List[schemas.Post])
+@router.get("/", response_model=List[schemas.PostOut])
 def get_posts(
     db: Session = Depends(get_db),
     current_user: dict = Depends(oauth2.get_current_user),
@@ -16,7 +17,9 @@ def get_posts(
     search: Optional[str] = "",
 ):
     posts = (
-        db.query(models.Post)
+        db.query(models.Post, func.count(models.Vote.post_id).label("votes"))
+        .join(models.Vote, models.Vote.post_id == models.Post.id, isouter=True)
+        .group_by(models.Post.id)
         .filter(models.Post.title.contains(search))
         .limit(limit)
         .offset(skip)
@@ -37,6 +40,7 @@ def get_post(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Post with id: {id} was not found",
         )
+
     return post
 
 
@@ -62,6 +66,7 @@ def update_post(
 ):
     post_query = db.query(models.Post).filter(models.Post.id == id)
     post = post_query.first()
+
     if post == None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -72,6 +77,7 @@ def update_post(
             status_code=status.HTTP_403_FORBIDDEN,
             detail=f"Not authorized to perform requested action",
         )
+
     post_query.update(updated_post.dict(), synchronize_session=False)
     db.commit()
     db.refresh(post)
@@ -86,6 +92,7 @@ def delete_post(
 ):
     post_query = db.query(models.Post).filter(models.Post.id == id)
     post = post_query.first()
+
     if post == None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -96,6 +103,7 @@ def delete_post(
             status_code=status.HTTP_403_FORBIDDEN,
             detail=f"Not authorized to perform requested action",
         )
+
     post_query.delete(synchronize_session=False)
     db.commit()
     return Response(status_code=status.HTTP_204_NO_CONTENT)
