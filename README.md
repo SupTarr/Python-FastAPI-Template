@@ -14,12 +14,28 @@ This project was created with:
 
 ## Installation
 
-### Quick start with Bootstrap
-
 ### Run Locally
 
 Clone the project
 
 ```sh
-git clone https://github.com/SupTarr/Adhoc.git
+git clone https://github.com/SupTarr/Python-FastAPI-Template.git
+```
+
+### Virtual environment on windows
+
+```cmd
+py -3 -m venv venv
+```
+
+```cmd
+venv\Scripts\activate.bat
+```
+
+(venv) C:\Users\tatas\Desktop\SupTarr\Workspace\Python-APIs-Template>
+
+### FastAPI
+
+```cmd
+uvicorn app.main:app --reload
 ```
