@@ -6,17 +6,27 @@
 
 ### 2.1: Virtual environment on windows
 
-**venv** is a Python module that creates a unique environment for each task or project.
+**virtualenv** is a Python module that creates a unique environment for each task or project.
+
+To install `virtualenv` via pip
 
 ```cmd
-py -3 -m venv venv
+py -m pip install --user virtualenv
 ```
+
+To create a `virtual environment` for your project, open a new command prompt, navigate to the folder where you want to create your project and then enter the following:
 
 ```cmd
-venv\Scripts\activate.bat
+py -m virtualenv .
 ```
 
-(venv) C:\Users\tatas\Desktop\SupTarr\Workspace\Python-APIs-Template>
+To activate the environment, run:
+
+```cmd
+.\Scripts\activate.bat
+```
+
+(Python-FastAPI-Template) C:\Users\tatas\Desktop\SupTarr\Workspace\Python-FastAPI-Template>
 
 ---
 
