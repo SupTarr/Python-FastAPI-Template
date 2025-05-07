@@ -35,6 +35,6 @@ SQLAlchemy==2.0.7
 starlette==0.36.2
 typing_extensions==4.5.0
 tzdata==2022.7
-urllib3==1.26.18
+urllib3==1.26.19
 uvicorn==0.21.1
 yarg==0.1.9
