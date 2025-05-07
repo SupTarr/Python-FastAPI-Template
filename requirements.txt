@@ -23,7 +23,7 @@ psycopg2==2.9.5
 pyasn1==0.4.8
 pycodestyle==2.10.0
 pycparser==2.21
-pydantic==1.10.7
+pydantic==1.10.13
 python-dotenv==1.0.0
 python-jose==3.4.0
 python-multipart==0.0.7
